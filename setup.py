@@ -10,8 +10,8 @@ setup(
     author_email='rcpsilva@gmail.com',
     description='A simple data cleaner API for python',
     install_requires=[
-        'pandas',
-        'scikit-learn',
+        'pandas >= 2.1',
+        'scikit-learn >= 1.3',
     ],
     python_requires='>=3.6'
 )

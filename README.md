@@ -19,19 +19,19 @@ pip install git+https://github.com/rcpsilva/DataCleaning@main
 ## Usage
 
 ```python
-    import DataCleaning as dc
-    import pandas as pd
+import DataCleaning as dc
+import pandas as pd
 
-    # Sample DataFrame
-    data = {'col1': [1, 2, None, 4], 'col2': [0.24, None, 0.15, 0.18]}
-    df = pd.DataFrame(data)
+# Sample DataFrame
+data = {'col1': [1, 2, None, 4], 'col2': [0.24, None, 0.15, 0.18]}
+df = pd.DataFrame(data)
 
-    # Using the API
-    cleaner = dc.DataCleaner(df)
-    cleaner.fill_missing_values(method='mean')
-    cleaner.remove_duplicates()
-    cleaner.normalize_data(['col1'])
-    print(cleaner.df)
+# Using the API
+cleaner = dc.DataCleaner(df)
+cleaner.fill_missing_values(method='mean')
+cleaner.remove_duplicates()
+cleaner.normalize_data(['col1'])
+print(cleaner.df)
 ```
 
 ## License

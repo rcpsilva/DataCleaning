@@ -19,26 +19,27 @@ class DataCleaner:
         self.df.dropna(inplace=True)
         return self.df
 
-    def convert_data_type(self, column, new_type):
-        self.df[column] = self.df[column].astype(new_type)
-        return self.df
-
     def normalize_data(self, columns):
         scaler = MinMaxScaler()
         self.df[columns] = scaler.fit_transform(self.df[columns])
         return self.df
 
-    def encode_categorical_data(self, column):
-        encoder = OneHotEncoder(sparse=False)
-        encoded = encoder.fit_transform(self.df[[column]])
-        encoded_df = pd.DataFrame(encoded, columns=encoder.get_feature_names([column]))
-        self.df = pd.concat([self.df, encoded_df], axis=1).drop(column, axis=1)
-        return self.df
-
     def remove_duplicates(self):
         self.df.drop_duplicates(inplace=True)
         return self.df
+    
 
-    def clean_text(self, column):
-        self.df[column] = self.df[column].str.lower().str.replace('[^\w\s]', '')
-        return self.df
+if __name__ == '__main__':
+
+    import pandas as pd
+
+    # Sample DataFrame
+    data = {'col1': [1, 2, None, 4], 'col2': [0.24, None, 0.15, 0.18]}
+    df = pd.DataFrame(data)
+
+    # Using the API
+    cleaner = DataCleaner(df)
+    cleaner.fill_missing_values(method='mean')
+    cleaner.remove_duplicates()
+    cleaner.normalize_data(['col1'])
+    print(cleaner.df)

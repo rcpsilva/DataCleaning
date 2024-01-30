@@ -19,6 +19,7 @@ pip install git+https://github.com/rcpsilva/DataCleaning@main
 ## Usage
 
 ```python
+    import DataCleaning as dc
     import pandas as pd
 
     # Sample DataFrame
@@ -26,7 +27,7 @@ pip install git+https://github.com/rcpsilva/DataCleaning@main
     df = pd.DataFrame(data)
 
     # Using the API
-    cleaner = DataCleaner(df)
+    cleaner = dc.DataCleaner(df)
     cleaner.fill_missing_values(method='mean')
     cleaner.remove_duplicates()
     cleaner.normalize_data(['col1'])

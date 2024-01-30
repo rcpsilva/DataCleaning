@@ -19,7 +19,7 @@ pip install git+https://github.com/rcpsilva/DataCleaning@main
 ## Usage
 
 ```python
-import DataCleaning as dc
+import DataCleaner as dc
 import pandas as pd
 
 # Sample DataFrame
